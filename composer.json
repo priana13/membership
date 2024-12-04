@@ -1,14 +1,14 @@
 {
-    "name": "priana/lara-member",
+    "name": "priana/membership",
     "description": "Membership Laravel",
     "type": "library",
     "require": {
-        "laravel/framework": "^9.19"
+        "illuminate/support": "^9.0"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Priana\\LaraMember\\": "src/"
+            "Priana\\Membership": "src/"
         }
     },
     "authors": [
@@ -16,5 +16,12 @@
             "name": "priana13",
             "email": "herian.sap@gmail.com"
         }
-    ]
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaraMember\\LaraMemberServiceProvider"
+            ]
+        }
+    }
 }
