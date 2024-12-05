@@ -4,7 +4,7 @@ namespace Priana\Membership;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaraMemberServiceProvider extends ServiceProvider
+class MemberServiceProvider extends ServiceProvider
 {
     public function register()
     {
@@ -13,8 +13,6 @@ class LaraMemberServiceProvider extends ServiceProvider
 
     public function boot()
     {
-
-        \Log::info('LaraMemberServiceProvider booted!');
 
 
         // Publish configs, migrations, or assets
