@@ -3,7 +3,7 @@
     "description": "Membership Laravel",
     "type": "library",
     "require": {
-        "illuminate/support": "^9"
+       
     },
     "license": "MIT",
     "autoload": {
