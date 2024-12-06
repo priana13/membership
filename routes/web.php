@@ -2,12 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\User;
 use Priana\Membership\Models\MbsPackage;
+use Priana\Membership\Models\MbsSubscription;
 
-// Route::get('member', function () {
+Route::get('member/test', function () {
 
-//     $user = \App\Models\User::first();
+    // $user = \App\Models\User::find(2);
+    // $package = MbsPackage::find(1);
 
-//     dd($user->subscriptions);
+    // MbsSubscription::addSubscription($user , $package);
+
+    // $my_subs = $user->subscriptions;
     
-// });
+});

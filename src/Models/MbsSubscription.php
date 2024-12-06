@@ -12,6 +12,8 @@ class MbsSubscription extends Model
 
     protected $guarded = [];
 
+    protected $with = ['package' , 'user'];
+
     public function user(){
 
     	return $this->belongsTo(User::class, 'user_id');
@@ -20,6 +22,25 @@ class MbsSubscription extends Model
     public function package(){
 
     	return $this->belongsTo(MbsPackage::class, 'mbs_package_id');
+    }
+
+    public static function addSubscription(User $user , MbsPackage $package){
+
+        $check = self::where('user_id' , $user->id)->where('mbs_package_id' , $package->id)->exists();
+
+        if(!$check){
+
+            self::create([
+                'user_id' => $user->id,
+                'mbs_package_id' => $package->id,
+                'expired_at' => now()->addDays($package->duration),
+                'status' => 'active'
+            ]);
+
+        }
+
+      
+
     }
 
 }
