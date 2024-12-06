@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('member', function () {
+use Priana\Membership\Models\MbsPackage;
 
-    return 'Hello from LaraMember!';
+// Route::get('member', function () {
+
+//     $user = \App\Models\User::first();
+
+//     dd($user->subscriptions);
     
-});
+// });

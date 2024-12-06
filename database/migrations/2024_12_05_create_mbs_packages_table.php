@@ -8,15 +8,18 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('mbs_packages', function (Blueprint $table) {
             $table->id();
-            $table->string('name');           
+            $table->string('name' , 100);
+            $table->integer('price');
+            $table->integer('month_qty');
+            $table->text('detail')->nullable();         
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('mbs_packages');
     }
 };

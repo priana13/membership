@@ -19,7 +19,7 @@ class MemberServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/lara-member.php' => config_path('lara-member.php'),
             __DIR__. '/../models/Group.php' => "app/Models/Group.php",
-             __DIR__. '/../models/Membership.php' => "app/Models/Membership.php",
+            __DIR__. '/../models/Membership.php' => "app/Models/Membership.php",
 
         ], 'memberhsip');
 

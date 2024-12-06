@@ -8,17 +8,18 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('membership', function (Blueprint $table) {
+        Schema::create('mbs_subscriptions', function (Blueprint $table) {
             $table->id();           
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('group_id');
+            $table->unsignedBigInteger('mbs_package_id');
             $table->date('expired_at');
+            $table->string('status' , 30);
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('membership');
+        Schema::dropIfExists('mbs_subscriptions');
     }
 };
