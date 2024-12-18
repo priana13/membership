@@ -16,4 +16,5 @@ Trait HasMembership {
 		return $this->hasMany(MbsTransaction::class, 'user_id');
 	}
 
+
 }

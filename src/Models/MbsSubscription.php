@@ -24,6 +24,18 @@ class MbsSubscription extends Model
     	return $this->belongsTo(MbsPackage::class, 'mbs_package_id');
     }
 
+    // scopes ==============
+
+    public function scopeActive($query){
+
+        return $query->where('status' , 'Active');
+    }
+
+    public function scopeExpired($query){
+
+        return $query->where('status' , 'Expired');
+    }
+
     public static function addSubscription(User $user , MbsPackage $package){
 
         $check = self::where('user_id' , $user->id)->where('mbs_package_id' , $package->id)->exists();

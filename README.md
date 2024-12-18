@@ -18,7 +18,7 @@ Library membership untuk laravel
 
     use Priana\Membership\Traits\HasMembership;
 
-    class User extends Authenticatable implements FilamentUser
+    class User extends Authenticatable
     {
        use HasMembership;
 
@@ -39,3 +39,10 @@ Library membership untuk laravel
 
          return $my_subs;
     }
+
+## Is User Has Active Subscriptions
+
+    $user = \App\Models\User::find(288);
+    $check_sub = $user->subscriptions()->active()->exists();
+
+    you can add this code to your laravel policy or to create validation on your Controller
