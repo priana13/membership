@@ -13,7 +13,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('mbs_package_id');
             $table->date('expired_at');
-            $table->string('status' , 30);
+            $table->string('status' , 30)->default("Active"); // Active, Expired
             $table->timestamps();
         });
     }

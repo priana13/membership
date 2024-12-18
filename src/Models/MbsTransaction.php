@@ -18,4 +18,9 @@ class MbsTransaction extends Model
 		return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function package(){
+
+        return $this->belongsTo(MbsPackage::class, 'mbs_package_id');
+    }
+
 }

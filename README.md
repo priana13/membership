@@ -9,9 +9,18 @@ Library membership untuk laravel
 ## Instalasi
 `composer require priana/membership`
 
+`php artisan vendor:publish --provider="Laravel\Pennant\PennantServiceProvider"`
 
 ## Migration
 `php artisan migrate`
+
+## Add MBS to User Model
+
+    use Priana\Membership\Traits\HasMembership;
+
+    class User extends Authenticatable implements FilamentUser
+    {
+       use HasMembership;
 
 ## Get My Subscriptions
 
