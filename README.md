@@ -9,7 +9,7 @@ Library membership untuk laravel
 ## Instalasi
 `composer require priana/membership`
 
-`php artisan vendor:publish --provider="Laravel\Pennant\PennantServiceProvider"`
+<!-- `php artisan vendor:publish --provider="Laravel\Pennant\PennantServiceProvider"` -->
 
 ## Migration
 `php artisan migrate`
