@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 use App\Models\User;
+
+use Illuminate\Support\Facades\Route;
 use Priana\Membership\Models\MbsPackage;
 use Priana\Membership\Models\MbsSubscription;
+use Priana\Membership\Controllers\MbsPackageController;
 
 Route::get('member/test', function () {
 
@@ -19,3 +20,6 @@ Route::get('member/test', function () {
     $check_sub = $user->subscriptions()->active()->exists();
     
 });
+
+
+Route::get('/mbs/package/{id}' , [MbsPackageController::class, 'show']);

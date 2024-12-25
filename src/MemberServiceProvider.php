@@ -28,5 +28,8 @@ class MemberServiceProvider extends ServiceProvider
 
         // Load routes
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+
+        // Load Views
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'mbs');
     }
 }
