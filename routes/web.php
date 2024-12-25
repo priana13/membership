@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Priana\Membership\Models\MbsPackage;
 use Priana\Membership\Models\MbsSubscription;
 use Priana\Membership\Controllers\MbsPackageController;
+use Priana\Membership\Controllers\MbsCheckoutController;
 
 Route::get('member/test', function () {
 
@@ -22,4 +23,7 @@ Route::get('member/test', function () {
 });
 
 
-Route::get('/mbs/package/{id}' , [MbsPackageController::class, 'show']);
+Route::get('/mbs/package/{id}' , [MbsPackageController::class, 'show'])->name('mbs.package');
+
+Route::get('/mbs/checkout/{id}' , [MbsCheckoutController::class, 'create'])->name('mbs.checkout');
+Route::get('/mbs/checkout/{id}/payment' , [MbsCheckoutController::class, 'payment'])->name('mbs.checkout.payment');
