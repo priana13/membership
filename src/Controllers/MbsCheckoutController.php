@@ -2,10 +2,11 @@
 
 namespace Priana\Membership\Controllers;
 
+use App\Http\Controllers\Controller;
 use Priana\Membership\Models\MbsPackage;
 use Illuminate\Http\Request;
 
-class MbsCheckoutController
+class MbsCheckoutController extends Controller
 {
     public function create($id){
      
@@ -15,6 +16,8 @@ class MbsCheckoutController
     }
 
     public function store(Request $request){
+
+        dd($request->all());
 
         // validate 
 

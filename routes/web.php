@@ -23,7 +23,18 @@ Route::get('member/test', function () {
 });
 
 
-Route::get('/mbs/package/{id}' , [MbsPackageController::class, 'show'])->name('mbs.package');
 
-Route::get('/mbs/checkout/{id}' , [MbsCheckoutController::class, 'create'])->name('mbs.checkout');
-Route::get('/mbs/checkout/{id}/payment' , [MbsCheckoutController::class, 'payment'])->name('mbs.checkout.payment');
+Route::middleware('web')->group(function () {
+
+    Route::get('/mbs/package/{id}' , [MbsPackageController::class, 'show'])->name('mbs.package');
+
+    Route::get('/mbs/checkout/{id}' , [MbsCheckoutController::class, 'create'])->name('mbs.checkout');
+    
+    Route::post('/mbs/checkout-store' , [MbsCheckoutController::class, 'store'])->name('mbs.checkout.store');
+    
+    Route::get('/mbs/checkout/{id}/payment' , [MbsCheckoutController::class, 'payment'])->name('mbs.checkout.payment');
+
+  
+});
+
+
