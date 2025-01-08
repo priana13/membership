@@ -90,18 +90,21 @@
             <div class="mb-4 w-full">
                <label for="7b717cea-8975-473a-96b4-daed1cc60022"></label>
                <input placeholder="Nama" name="name" type="text" id="7b717cea-8975-473a-96b4-daed1cc60022" class="w-full block rounded-lg border dark:border-none dark:bg-neutral-600 py-[9px] px-3 pr-4 text-sm focus:border-blue-400 focus:ring-1 focus:ring-blue-400 focus:outline-none" />
+               @error('name') <p class="mt-1 text-red-500 capitalize">{{ $message }}</p> @enderror
             </div>
 
               <!-- Text input -->
             <div class="mb-4 w-full">
                <label for="1de88174-4b10-4159-918b-9aa637e009c9"></label>
                <input placeholder="No Hp" name="phone_number" type="text" id="1de88174-4b10-4159-918b-9aa637e009c9" class="w-full block rounded-lg border dark:border-none dark:bg-neutral-600 py-[9px] px-3 pr-4 text-sm focus:border-blue-400 focus:ring-1 focus:ring-blue-400 focus:outline-none" />
+               @error('phone_number') <p class="mt-1 text-red-500 capitalize">{{ $message }}</p> @enderror
             </div>
 
             <!-- Email input -->
             <div class="mb-4 w-full">
                <label for="d013e3ab-dde1-49e3-98d7-8293ebe68163"></label>
                <input placeholder="Alamat Email" name="email" type="email" id="d013e3ab-dde1-49e3-98d7-8293ebe68163" class="w-full block rounded-lg border dark:border-none dark:bg-neutral-600 py-[9px] px-3 pr-4 text-sm focus:border-blue-400 focus:ring-1 focus:ring-blue-400 focus:outline-none" />
+               @error('email') <p class="mt-1 text-red-500 capitalize">{{ $message }}</p> @enderror
             </div>
             
             
