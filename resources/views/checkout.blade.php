@@ -32,6 +32,7 @@
 
    <div class="p-6">
 
+         <input type="hidden" name="package_id" value="{{ $package->id }}">
        
 
          <div class="my-2">
