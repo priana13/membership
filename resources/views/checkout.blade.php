@@ -7,15 +7,20 @@
 <form class="bg-white shadow mx-auto w-1/2 py-5" method="post" action="{{route('mbs.checkout.store')}}"
 
   x-data="{
-   qty:1,
+   qty:{{ (old('qty')) ? old('qty') : 1 }},
    tanggal : '',
+   price: 50000,
+   totalPrice (){
+
+      return this.price * this.qty;
+   },
    hitungBulan() {
       let currentDate = new Date();
       currentDate.setMonth(currentDate.getMonth() + this.qty);
       let year = currentDate.getFullYear();
       let month = String(currentDate.getMonth() + 1).padStart(2, '0'); // tambahkan 1 karena bulan mulai dari 0
       let day = String(currentDate.getDate()).padStart(2, '0');
-
+    
       this.tanggal = `${day}-${month}-${year}`;
   }
   }"
@@ -62,19 +67,28 @@
                </svg>
             </div>
          
+            <div class="flex justify-between">
 
-            <p class="flex items-center">
-               <span>
-                  <svg class="w-[15px] h-[15px] fill-[#07d50a]" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
 
-                     <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                     <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path>
+               <p class="flex items-center">
+                  <span>
+                     <svg class="w-[15px] h-[15px] fill-[#07d50a]" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+   
+                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path>
+                     
+                     </svg>
+                  </span>
+                  <span class="ms-1">Active | </span> <span class="ms-2" x-text="tanggal"></span>
                   
-                  </svg>
-               </span>
-               <span class="ms-1">Active | </span> <span class="ms-2" x-text="tanggal"></span>
-               
-            </p>
+               </p>
+
+               <h2 class="text-xl" x-text="totalPrice().toLocaleString('id-ID')">Rp. 50.000</h2> 
+
+
+            </div>
+
+           
 
          </div>
 

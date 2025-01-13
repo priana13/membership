@@ -2,6 +2,7 @@
 
 namespace Priana\Membership\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Priana\Membership\Models\MbsPackage;
@@ -33,7 +34,7 @@ class MbsCheckoutController extends Controller
         $package = MbsPackage::find($request->package_id);
 
         $transaction = MbsTransaction::create([
-            'user_id' => $user->id,
+            'user_id' => ($user) ? $user->id : null,
             'mbs_package_id' => $request->package_id,
             'date' => now(),
             'price' => $package->price,
@@ -57,7 +58,19 @@ class MbsCheckoutController extends Controller
 
     private function getUser(){
 
-        $user = auth()->user();
+
+        $user = ( auth()->user() ) ? auth()->user() : null;     
+        
+        
+        if(!$user){
+
+            $user = User::create([
+                'name' => request()->name,
+                'email' => request()->email,
+                // 'phone_number' => request()->phone_number,
+                'password' => bcrypt('password'),
+            ]);
+        }
 
         return $user;
     }
