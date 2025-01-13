@@ -49,11 +49,12 @@ class MbsCheckoutController extends Controller
         return redirect()->route('mbs.checkout.payment' , $transaction->id);
     }
 
-    public function payment(){
+    public function payment($id){
 
-        // get transaction data
+        
+        $transaction = MbsTransaction::find($id);
 
-        return view('mbs::payment');
+        return view('mbs::payment' , compact('transaction'));
     }
 
     private function getUser(){
