@@ -63,9 +63,9 @@
 
             <h2 class="text-xl my-2">Lakukan pembayaran ke rekening berikut:</h2>
 
-            <p>Rekening: Bank Syariah Indonesia </p>
-            <p>No Rek: 08554444</p>
-            <p>atas nama Bisi Online</p>
+            <p>Rekening: {{ $payment_method['name'] }} </p>
+            <p>No Rek: {{ $payment_method['account_number'] }}</p>
+            <p>atas nama {{ $payment_method['owner_name'] }}</p>
             
             
          </div>

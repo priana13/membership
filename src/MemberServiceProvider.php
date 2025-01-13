@@ -31,5 +31,10 @@ class MemberServiceProvider extends ServiceProvider
 
         // Load Views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'mbs');
+
+        $this->mergeConfigFrom(
+            __DIR__.'/config/lara-member.php', 'lara-member'
+        );
+
     }
 }
